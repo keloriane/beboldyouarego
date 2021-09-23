@@ -1,8 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap');
-p ,a, h1 , h2 , h3 ,h3, span{
+p ,a, h1 , h2 , h3 ,h3,h4, span , label{
 	font-family: "Poppins" , sans-serif;
 }
 
+.hidden-overflow {
+	overflow: hidden;
+}
+
+body {
+	overflow-x: hidden ;
+}
+
+h2 {
+	font-size: 40px;
+}
 .blue {
 	color: #152565;
 }
@@ -74,6 +85,7 @@ body {
 	min-height: 100vh;
 	text-rendering: optimizeSpeed;
 	line-height: 1.5;
+	position: relative;
 }
 
 /* A elements that don't have a class get default styles */

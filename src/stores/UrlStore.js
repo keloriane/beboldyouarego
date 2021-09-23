@@ -1,5 +1,6 @@
 import {writable} from "svelte/store";
 import axios from "axios";
+import {onMount} from "svelte";
 
 
 export const aboutData  = writable([]);
@@ -21,6 +22,21 @@ export const fetchActivityData = async() => {
             activityData.set(res.data)
         })
 }
+
+
+
+
+
+
+
+
+
+export const fetchAboutData = () => {
+
+
+}
+fetchAboutData()
+
 
 export const boostData = writable([]);
 

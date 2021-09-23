@@ -1,4 +1,18 @@
 <script>
+export const ssr = false
+import {gsap} from "gsap/dist/gsap.js"
+import {onMount} from "svelte";
+import {scale} from "svelte/transition";
+onMount(()=>{
+
+
+
+    const words = document.querySelectorAll(".hero_animate")
+    const background = document.querySelector('.hero__header__wrapper')
+    console.log(words);
+    gsap.from(words , { y:100 , duration:.5 , stagger:0.1 , delay:1})
+    gsap.from(background , { transform: "scale(2)" , duration:1 , ease:"power2.out" , y:"100%" })
+})
 
 </script>
 
@@ -9,25 +23,22 @@
     <div class="hero__header__container">
 
     </div>
-<div class="Nav_Bar_Container">
-    <div class="logo-container">
-        <img src="" alt=""/>
-    </div>
-    <nav>
-        <li>À propos</li>
-        <li>Activités</li>
-        <li>Contact</li>
-    </nav>
-</div>
+
     <div class="title__container">
         <h1>
-                <span class={"orange"}>
+            <div class="hidden-overflow">
+
+                <span class={"orange hero_animate"}>
                     Be Bold
                 </span>
+            </div>
             <br/>
-            <span>
+            <div class="hidden-overflow">
+
+            <span class="hero_animate">
                     you are gold
                 </span>
+            </div>
 
         </h1>
     </div>
@@ -43,6 +54,10 @@
     position: relative;
       width: 100vw;
       height: 100%;
+    span {
+      display: block;
+    }
+
   }
     .hero__header__container {
       width: 100%;
@@ -62,6 +77,7 @@
     height: 80vh;
     position: relative;
     h1 {
+      line-height: 42px;
       position: relative;
       z-index: 2;
       color: white;

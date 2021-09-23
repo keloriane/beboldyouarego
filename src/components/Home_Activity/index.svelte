@@ -4,9 +4,15 @@
 
     import {onMount} from 'svelte';
     import SwiperCore, {Navigation, Pagination} from 'swiper';
+    import cheerio from 'cheerio'
+
+
 
     // tell swiper to use navigation and pagination modules
     SwiperCore.use([Navigation, Pagination]);
+
+
+
 
     let Swiper;
     let SwiperSlide;
@@ -17,6 +23,10 @@
         Swiper = SwiperSvelteModule.Swiper;
         SwiperSlide = SwiperSvelteModule.SwiperSlide;
     });
+
+
+    //Animation card
+
 
 
     const getData = async () => {
@@ -35,7 +45,7 @@
     <div class="activity__container">
         <div class="activity__title__container">
             <div class="section__title__wrapper">
-            <h2 class="blue">Nos Activités</h2>
+                <h2 class="blue">Nos Activités</h2>
 
             </div>
             <div class="section__subtitle__wrapper">
@@ -63,12 +73,16 @@
             class="activity__card__container">
 
         {#each $activityData as activity }
+
             <svelte:component
                     this={SwiperSlide}
                     id="activity-card" class="activity_card" index={activity.id}>
+            <div class="cards">
                 <img src={activity.acf.thumbnail.url} alt="" class="icon-card">
 
-                <h3 class="blue">{activity.title.rendered}</h3>
+                <h3 class="blue">
+
+                    {cheerio.load(activity.title.rendered).text()}</h3>
                 <div class="activity__card card__text__container">
                     <p>
                         {activity.acf.excerpt}
@@ -76,8 +90,9 @@
 
                 </div>
                 <div class="call__to__action">
-                    <a class="orange" href="">Explorer ></a>
+                    <a class="orange" href="activity/{activity.slug}">Explorer ></a>
                 </div>
+            </div>
             </svelte:component>
 
         {/each}
@@ -94,10 +109,12 @@
   }
 
   #activity {
-    margin-top: 150px;
+    margin: 250px auto;
     width: 100vw;
     max-width: 1280px;
+
   }
+
   /*  #activity-card {
       width: 100%;
       max-width: 320px;
@@ -106,22 +123,26 @@
   .swiper-wrapper {
     margin-top: 90px !important;
   }
+
   .section__subtitle__wrapper {
     width: 100%;
     max-width: 417px;
 
 
   }
+
   .activity__title__container {
     display: flex;
     justify-content: space-between;
     width: 100%;
     max-width: 812px;
     margin: 20px auto 20px;
+
     h2 {
       font-size: 40px;
     }
   }
+
   .activity__card__container {
     /*    display: flex;
         flex-wrap: wrap;
@@ -129,7 +150,7 @@
         justify-content: center;
         margin: auto;
         gap: 65px;*/
-     margin-top: 60px !important;
+    margin-top: 60px !important;
   }
 
   .icon-card {
@@ -147,11 +168,12 @@
 
     }
   }
-  @media only screen and(max-width:786px) {
-        .activity__title__container{
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-        }
+
+  @media only screen and(max-width: 786px) {
+    .activity__title__container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
   }
 </style>

@@ -34,10 +34,16 @@
     "@fontsource/fira-mono": "^4.2.2",
     "@lukeed/uuid": "^2.0.0",
     "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.10",
     "cookie": "^0.4.1",
+    "gsap": "npm:@gsap/shockingly@^3.7.1",
+    "html-parser": "^0.11.0",
     "lodash": "^4.17.21",
+    "node-html-parser": "^4.1.4",
+    "react-html-parser": "^2.0.2",
     "sass": "^1.38.2",
     "siema": "^1.5.1",
+    "svelte-parse": "^0.1.0",
     "swiper": "^7.0.2"
   }
 }

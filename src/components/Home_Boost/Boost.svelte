@@ -1,32 +1,32 @@
 <script>
-    import Home_About from './../Home_About/index.svelte'
-    import Button from "./../common/Button.svelte";
-    import {aboutData} from "../../stores/UrlStore";
 
-    console.log($aboutData);
+
+
+
+
+
+
 </script>
 
 <section id="boost">
-    <div class="text__container">
-        <div class="text__container title__container">
-            <h3 class="text__container section_title blue">Boostez votre employabilité</h3>
-        </div>
-        <div class="text__container text__wrapper">
-            <p class="section__text">
-                {
-                        $aboutData?.mission_text
-                }
-            </p>
+    <div class="layer__background__container">
 
-        </div>
-        <Button url="/todos" />
     </div>
-    <div class="boost__image__container">
-        <div class="image__container image__wrapper">
-            <img src={$aboutData?.imageone?.url} alt="">
+    <div class="section__mission__container">
+        <div class="title__wrapper">
+            <h2>Boostez votre employabilité</h2>
         </div>
-        <div class="image__layer">
-            <img src={$aboutData?.imgaetwo?.url} alt="">
+        <div class="text__wrapper__mission">
+            <div class="text__wrapper">
+                <p>
+                    Notre offre se compose de 5 thématiques. Nous discuterons ensemble lors d’un premier
+                    entretien gratuit des thématiques à aborder pour vous aider en fonction de votre situation
+                    personnelle.
+                </p>
+            </div>
+            <div class="call__to__action">
+
+            </div>
         </div>
     </div>
 
@@ -34,88 +34,69 @@
 
 <style lang="scss">
 
-  .boost__image__container {
+
+
+
+  #boost {
+    width: 100vw;
     position: relative;
-    .image__wrapper {
-        img {
-          width: 545px;
+    height: 455px;
+    background-image: url("https://b-gold.be/wp-content/uploads/2021/09/boost.png");
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+  }
+
+  .layer__background__container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(355.75deg, #060D19 12.19%, rgba(6, 13, 25, 0.991353) 17.47%, rgba(6, 13, 25, 0.96449) 22.74%, rgba(6, 13, 25, 0.91834) 28.02%, rgba(6, 13, 25, 0.852589) 33.29%, rgba(6, 13, 25, 0.768225) 38.56%, rgba(6, 13, 25, 0.668116) 43.84%, rgba(6, 13, 25, 0.557309) 49.11%, rgba(6, 13, 25, 0.442691) 54.39%, rgba(6, 13, 25, 0.331884) 59.66%, rgba(6, 13, 25, 0.231775) 64.93%, rgba(6, 13, 25, 0.147411) 70.21%, rgba(6, 13, 25, 0.0816599) 75.48%, rgba(6, 13, 25, 0.03551) 80.76%, rgba(6, 13, 25, 0.0086472) 86.03%, rgba(6, 13, 25, 0) 91.3%);
+  }
+
+
+  .section__mission__container {
+    width: 100%;
+    max-width: 1030px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+  }
+
+  .title__wrapper {
+    width: 302px;
+    h2 {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 41.6667px;
+      line-height: 110%;
+      color: #FFFFFF;
+    }
+  }
+  .text__wrapper__mission {
+    .text__wrapper{
+      width: 100%;
+      max-width: 446px;
+        p {
+          font-style: normal;
+          font-weight: 300;
+          font-size: 16.6667px;
+          line-height: 120%;
+          color: #FFFFFF;
+
         }
     }
-    .image__layer {
-      position: absolute;
-      bottom: -50px;
-      img {
-        width: 253px;
+    .call__to__action {
+      a {
 
       }
     }
   }
-
-    #boost {
-
-        display: flex;
-        width: 100%;
-        max-width: 1280px;
-        align-items: center;
-        gap: 95px;
-      justify-content: center;
-      margin: 100px auto;
-    .image__container {
-    img {
-        max-width: 525px;
-    }
-    }
-    .text__container {
-        width: 100%;
-        max-width: 380px;
-    .text__wrapper {
-        max-width: 319px;
-        margin-top: 50px;
-    }
-    h3 {
-        font-style: normal;
-        font-weight: bold;
-        font-size: 40px;
-        line-height: 110%;
-        align-items: center;
-        letter-spacing: -0.01em;
-    }
-    .call__to__action {
-        margin-top: 47px;
-    button {
-        border: none;
-        width: 188px;
-        height: 48px;
-        border-radius: 30px;
-        background: #E7650F;
-    a{
-        color: white;
-        text-decoration: none;
-        font-weight: 800;
-        font-size: 14px;
-    }
-    }
-    }
-    }
-    }
-    @media only screen and (max-width:857px){
-        .home_about {
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        .text__container {
-            max-width: 470px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        .call__to__action {
-            margin-top: 15px;
-        }
-        button {
-            margin: 0 auto;
-        }
-    }
-    }
-    }
 </style>

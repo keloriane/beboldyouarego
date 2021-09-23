@@ -1,50 +1,72 @@
-<script context="module">
-	import { browser, dev } from '$app/env';
+<script>
+    import {browser, dev} from '$app/env';
+    import About_Header from './../components/About__Header/about__header.svelte'
+    import About_How from './../components/About_How/about_how.svelte';
+    import cheerio from 'cheerio'
+    import About_Team from "./../components/About_Team/about_team.svelte";
+    import Home_Contact from './../components/Home_Contact/home_contact.svelte';
+    import {fade} from "svelte/transition"
 
-	// we don't need any JS on this page, though we'll load
-	// it in dev so that we get hot module replacement...
-	export const hydrate = dev;
 
-	// ...but if the client-side router is already loaded
-	// (i.e. we came here from elsewhere in the app), use it
-	export const router = browser;
 
-	// since there's no dynamic data here, we can prerender
-	// it so that it gets served as a static asset in prod
-	export const prerender = true;
+    const fetchData = (async () => {
+
+        const res = await fetch('https://b-gold.be/wp-json/wp/v2/pages/28933')
+        const data = await res.json();
+
+        console.log(data);
+
+        if (res.ok) {
+            return data
+        } else {
+            throw new Error(data)
+        }
+    })
+
+
+    export const hydrate = dev;
+
+    // ...but if the client-side router is already loaded
+    // (i.e. we came here from elsewhere in the app), use it
+    export const router = browser;
+
+    // since there's no dynamic data here, we can prerender
+    // it so that it gets served as a static asset in prod
+    export const prerender = true;
+
+
 </script>
 
 <svelte:head>
-	<title>About</title>
+    <title>About</title>
 </svelte:head>
 
-<div class="content">
-	<h1>About this app</h1>
+<div class="about_content" transition:fade>
 
-	<p>
-		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
-		following into your command line and following the prompts:
-	</p>
+    {#await fetchData()  }
+        <p>...waiting</p>
+    {:then data}
 
-	<!-- TODO lose the @next! -->
-	<pre>npm init svelte@next</pre>
+        <About_Header
+                aboutUp={data?.acf.title_about_up}
+                aboutDown={data.acf.title_about_down}
+                aboutText={cheerio.load(data.acf.about_text).text()}
+                aboutImage={data.acf.about_image.url}
+                aboutImageLayer={data.acf.about_image_layer.url}/>
 
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
-	</p>
+        <About_Team />
+    <About_How />
+        <Home_Contact />
 
-	<p>
-		The <a href="/todos">TODOs</a> page illustrates SvelteKit's data loading and form handling. Try using
-		it with JavaScript disabled!
-	</p>
+    {/await}
+
+
 </div>
 
 <style>
-	.content {
-		width: 100%;
-		max-width: var(--column-width);
-		margin: var(--column-margin-top) auto 0 auto;
-	}
+    .content {
+        width: 100%;
+        max-width: var(--column-width);
+        margin: var(--column-margin-top) auto 0 auto;
+    }
 </style>

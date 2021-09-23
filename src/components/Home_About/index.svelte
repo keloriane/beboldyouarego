@@ -1,28 +1,68 @@
 <script>
+    export const ssr = false
     import {aboutData} from './../../stores/UrlStore.js'
     import Button from "../common/Button.svelte";
+    import {onMount} from "svelte";
+    import {gsap} from "gsap/dist/gsap.js";
+    import {ScrollTrigger} from "gsap/dist/ScrollTrigger.js"
 
 
-    console.log($aboutData);
+    gsap.registerPlugin(ScrollTrigger);
+
+
+    onMount(() => {
+        const words = document.querySelectorAll(".title-animate")
+        const homeAboutTimeline = gsap.timeline({
+            scrollTrigger: {
+                start: "center center",
+                trigger: ".home_about",
+                end:"+=200",
+                markers: true
+            }
+        })
+        homeAboutTimeline
+            .from(words, {y: 100, duration: .5, stagger: 0.1})
+            .to(".overflow-image", {left: '100%', duration: .5,delay:-.5, ease: "power2.inOut"})
+            .fromTo('.section__text', {y: 100, opacity: 0,duration: 1, delay: -.5} , {y:0 , opacity:1})
+            .from(".main__image", {transform: "scale(2.5)", duration: 1.5, delay:-1.6, ease: "power2.inOut"})
+
+    })
+
 </script>
 
 
 <section class="home_about">
     <div class="text__container">
         <div class="text__container title__container">
-            <h3 class="text__container section_title blue">Soyez Audacieux</h3>
+            <h3 class="text__container section_title blue">
+                <div class="hidden-overflow">
+                <span class="title-animate">
+                    Soyez
+                </span>
+
+                </div>
+                <div class="hidden-overflow">
+                <span class="title-animate">
+                    Audacieux
+                </span>
+
+                </div>
+            </h3>
         </div>
         <div class="text__container text__wrapper">
-        <p class="section__text">
-            {  $aboutData?.a_propos}
-        </p>
+            <p class="section__text">
+                {  $aboutData?.a_propos}
+            </p>
 
         </div>
-        <Button url="/todos" />
+        <Button url="/todos"/>
     </div>
     <div class="image__container">
-        <div class="image__container image__wrapper">
-            <img src={$aboutData?.image_about?.url} alt="">
+        <div class="image__wrapper">
+            <div class="overflow-image">
+
+            </div>
+            <img src={$aboutData?.image_about?.url} alt="" class="main__image">
         </div>
     </div>
 
@@ -31,71 +71,99 @@
 
 <style lang="scss">
 
-    .home_about {
-        display: flex;
-        width: 100%;
-        max-width: 1280px;
-        align-items: center;
-        justify-content: center;
-      margin: 150px auto;
+  .home_about {
+    display: flex;
+    width: 100%;
+    max-width: 1280px;
+    align-items: center;
+    justify-content: center;
+    margin: 250px auto;
 
-        gap: 95px;
-        .image__container {
-          img {
-            max-width: 525px;
-          }
-        }
-        .text__container {
-          width: 100%;
-          max-width: 380px;
-          .text__wrapper {
-            max-width: 319px;
-            margin-top: 50px;
-          }
-            h3 {
-              font-style: normal;
-              font-weight: bold;
-              font-size: 40px;
-              line-height: 110%;
-              align-items: center;
-              letter-spacing: -0.01em;
-            }
-          .call__to__action {
-            margin-top: 47px;
-            button {
-              border: none;
-              width: 188px;
-              height: 48px;
-              border-radius: 30px;
-              background: #E7650F;
-              a{
-                color: white;
-                text-decoration: none;
-                font-weight: 800;
-                font-size: 14px;
-              }
-            }
-          }
-        }
+    gap: 95px;
+
+    span {
+      display: block;
     }
-    @media only screen and (max-width:857px){
-        .home_about {
-          flex-direction: column;
-          align-items: center;
-          gap: 10px;
-          .text__container {
-            max-width: 470px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            .call__to__action {
-              margin-top: 15px;
-            }
-            button {
-              margin: 0 auto;
-            }
+
+    .image__container {
+      position: relative;
+      overflow: hidden;
+
+      .overflow-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        z-index: 1;
+      }
+
+      img {
+        max-width: 525px;
+      }
+    }
+
+    .text__container {
+      width: 100%;
+      max-width: 380px;
+
+      .text__wrapper {
+        max-width: 319px;
+        margin-top: 50px;
+      }
+
+      h3 {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 40px;
+        line-height: 110%;
+        align-items: center;
+        letter-spacing: -0.01em;
+        display: flex;
+        gap: 10px;
+      }
+
+      .call__to__action {
+        margin-top: 47px;
+
+        button {
+          border: none;
+          width: 188px;
+          height: 48px;
+          border-radius: 30px;
+          background: #E7650F;
+
+          a {
+            color: white;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 14px;
           }
         }
+      }
     }
+  }
+
+  @media only screen and (max-width: 857px) {
+    .home_about {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+
+      .text__container {
+        max-width: 470px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .call__to__action {
+          margin-top: 15px;
+        }
+
+        button {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
 </style>
