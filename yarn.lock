@@ -64,6 +64,11 @@
   "resolved" "https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-1.2.0.tgz"
   "version" "1.2.0"
 
+"@iarna/toml@^2.2.5":
+  "integrity" "sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg=="
+  "resolved" "https://registry.npmjs.org/@iarna/toml/-/toml-2.2.5.tgz"
+  "version" "2.2.5"
+
 "@lukeed/csprng@^1.0.0":
   "integrity" "sha512-ruuGHsnabmObBdeMg3vKdGRmh06Oog3eFpf/Tk6X0kDSJDpJTDCj2dqdp1+0VjzIUgHlFF9GBm7uFqfYhhdX9g=="
   "resolved" "https://registry.npmjs.org/@lukeed/csprng/-/csprng-1.0.0.tgz"
@@ -104,6 +109,14 @@
   dependencies:
     "estree-walker" "^2.0.1"
     "picomatch" "^2.2.2"
+
+"@sveltejs/adapter-netlify@^1.0.0-next.31":
+  "integrity" "sha512-MmN8OLXVLmc51MpoSXJyd4M+MSO3z2nI+rmMy0UklQ4iwYrKXBj2fz53KVpJkdY+36B0NrQipNHYT8yW7u/4EA=="
+  "resolved" "https://registry.npmjs.org/@sveltejs/adapter-netlify/-/adapter-netlify-1.0.0-next.31.tgz"
+  "version" "1.0.0-next.31"
+  dependencies:
+    "@iarna/toml" "^2.2.5"
+    "esbuild" "^0.12.5"
 
 "@sveltejs/kit@next":
   "integrity" "sha512-JmacpK+VsppUKDQu1B3oJ70SnE9BXb/PSAP3f91K/DMnaSEGj7vtHn/3e6l7Mop12t1PkBk5lImh/ULqBO+YfA=="
@@ -822,7 +835,7 @@
   dependencies:
     "is-arrayish" "^0.2.1"
 
-"esbuild@^0.12.17":
+"esbuild@^0.12.17", "esbuild@^0.12.5":
   "integrity" "sha512-C0ibY+HsXzYB6L/pLWEiWjMpghKsIc58Q5yumARwBQsHl9DXPakW+5NI/Y9w4YXiz0PEP6XTGTT/OV4Nnsmb4A=="
   "resolved" "https://registry.npmjs.org/esbuild/-/esbuild-0.12.24.tgz"
   "version" "0.12.24"
