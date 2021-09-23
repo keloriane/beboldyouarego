@@ -37,7 +37,7 @@
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.10",
     "cookie": "^0.4.1",
-    "gsap": "npm:@gsap/shockingly@^3.7.1",
+    "gsap": "^3.7.1",
     "html-parser": "^0.11.0",
     "lodash": "^4.17.21",
     "node-html-parser": "^4.1.4",

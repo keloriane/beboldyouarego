@@ -1217,9 +1217,9 @@
   "resolved" "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.8.tgz"
   "version" "4.2.8"
 
-"gsap@npm:@gsap/shockingly@^3.7.1":
-  "integrity" "sha512-1zQ4U0vgSiT0C51nFxH3+K7tKPYnI6o3s3D4pQRBkqaIWsDvfBcpfwviiQQZzUUvGoN4kyM6t+Xk6au8dkvAEQ=="
-  "resolved" "https://npm.greensock.com/@gsap%2fshockingly/-/shockingly-3.7.1.tgz"
+"gsap@^3.7.1":
+  "integrity" "sha512-4qxuaC2yFWRjMRof5tI/7c9/+L4xMsCoqHrZAmuh+IbOokTnZyoeF0VgvcVHq3uo+/VJZCs7PTvjrFasfGl+ww=="
+  "resolved" "https://registry.npmjs.org/gsap/-/gsap-3.7.1.tgz"
   "version" "3.7.1"
 
 "har-schema@^2.0.0":
