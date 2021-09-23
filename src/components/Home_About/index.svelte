@@ -17,7 +17,7 @@
                 start: "center center",
                 trigger: ".home_about",
                 end:"+=200",
-                markers: true
+
             }
         })
         homeAboutTimeline
