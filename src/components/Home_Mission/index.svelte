@@ -1,13 +1,27 @@
 <script>
+    import {aboutData} from "../../stores/UrlStore";
+
     export const ssr = false
     import Button from "../common/Button.svelte";
     import {gsap} from 'gsap/dist/gsap.js';
     import {ScrollTrigger} from 'gsap/dist/ScrollTrigger.js'
+    import axios from 'axios';
     import {onMount} from "svelte";
 
     gsap.registerPlugin(ScrollTrigger)
 
+    let missionData =''
+
+    axios.get('https://b-gold.be/wp-json/wp/v2/pages')
+        .then((res)=> {
+            missionData = res.data[1].acf;
+            console.log(missionData);
+
+        })
+
+
     onMount(() => {
+
         const words = document.querySelectorAll('.title_mission ');
         const homeAboutTimeline = gsap.timeline({
             scrollTrigger: {
@@ -25,11 +39,11 @@
 <section class="mission__section">
     <div class="mission__title__container">
         <div class="hidden-overflow">
-            <h3 class=" title_mission blue">La mission de</h3>
+            <h3 class=" title_mission blue">{missionData.mission_title_up}</h3>
 
         </div>
         <div class="hidden-overflow">
-            <h3 class="  title_mission orange">de BeBold</h3>
+            <h3 class="  title_mission orange">{missionData.mission_title_down}</h3>
 
         </div>
 

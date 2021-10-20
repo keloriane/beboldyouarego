@@ -36,10 +36,7 @@
             <img src={aboutImage} alt="">
 
         </div>
-        <div class="image__layer">
-          <!--  <img src={$aboutPageData?.acf?.about_image_layer.url} alt="">-->
-            <img src={aboutImageLayer} alt="">
-        </div>
+
     </div>
 </section>
 

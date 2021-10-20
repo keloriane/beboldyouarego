@@ -30,6 +30,7 @@
         </div>
         <div class="footer__items contact__info__item ">
             <div class="info__container">
+                <h4>Nos contact</h4>
                 <div class="subtitle">
                     <p>Mobile</p>
                 </div>
@@ -45,9 +46,9 @@
                 </div>
                 <div class="info">
 
-                        <a href="">
-                            info@beboldyouaregold.be
-                        </a>
+                    <a href="">
+                        info@beboldyouaregold.be
+                    </a>
 
                 </div>
             </div>
@@ -63,19 +64,22 @@
     background: #060E1A;
     height: 259px;
     padding: 50px;
+
     .info {
       a {
-      font-style: normal;
-      font-weight: 600;
-      font-size: 16.6667px;
-      line-height: 125.5%;
-      display: flex;
-      align-items: center;
-      text-transform: uppercase;
-      color: #FFFFFF;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16.6667px;
+        line-height: 125.5%;
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+        flex-wrap: wrap;
+        color: #FFFFFF;
 
       }
     }
+
     .subtitle {
       a {
         font-style: normal;
@@ -88,8 +92,9 @@
         color: rgba(255, 255, 255, 0.5);
       }
     }
+
     h4 {
-      font-family: Poppins , sans-serif;
+      font-family: Poppins, sans-serif;
     }
 
     .footer__container {
@@ -117,6 +122,12 @@
             }
           }
         }
+      }
+    }
+
+    .info__container {
+      h4 {
+        margin-bottom: 15px;
       }
     }
   }

@@ -19,15 +19,6 @@
                 </a>
             </div>
         </div>
-        <div class="text__home__contact">
-            <div class="text__wrapper">
-                <p>
-                    Chaque ambition est unique, c’est pourquoi nous attachons une importance particulière à comprendre votre situation et vos attentes afin de vous proposer un accompagnement personnalisé au plus proche de votre projet professionnel.
-                </p>
-            </div>
-            <Button/>
-        </div>
-
     </div>
     <div class="boost__line"></div>
 </section>
@@ -36,12 +27,10 @@
 <style lang="scss">
   .boost__line {
     width: 1026px;
-    margin-left: auto;
-    margin-right: auto;
     border: .5px solid #F4B083;
     height: 1px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px auto 20px auto;
+
   }
   #home_contact {
     background: #060E1A;
@@ -52,7 +41,7 @@
     max-width: 970px;
     margin: auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     padding-top: 77px;
     padding-bottom: 77px;

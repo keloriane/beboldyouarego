@@ -16,8 +16,7 @@
 
 <div id="home_page" transition:fade>
 <Home_Hero />
-<Home_About
-/>
+<Home_About />
 <Home_Mission />
 <Home_Activity />
 <Home_Boost />

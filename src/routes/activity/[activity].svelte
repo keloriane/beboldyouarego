@@ -2,6 +2,8 @@
 
     import axios from "axios";
     import  cheerio from 'cheerio';
+    import {parse} from "node-html-parser"
+    import {convert} from 'html-to-text'
     export let activityData
     export let slug
     export const load = async ({page}) => {
@@ -38,11 +40,21 @@
 </script>
 <section>
 
-<h1>{mainActivity.title.rendered}</h1>
-  <p></p>  {cheerio.load(mainActivity.content.rendered).text()}
+<h1>{cheerio.load(mainActivity.title.rendered).text()}</h1>
+<!--  <p>  {cheerio.load(mainActivity.content.rendered).html()} </p>-->
+
+ <p>
+  {parse(mainActivity.content.rendered)}
+ </p>
+
+
+
+
 
 
 </section>
 <style>
-
+ol , ul {
+  list-style: inherit !important;
+}
 </style>

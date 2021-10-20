@@ -6,9 +6,8 @@
 
     axios.get('https://b-gold.be/wp-json/acf/v3/team')
         .then(res => {
-
-
             teams = res.data;
+            console.log(teams);
         })
 
 </script>
