@@ -5,9 +5,9 @@
 
 <header>
 	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			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
-		</a>
+		<nuxt-link :href="/">
+			<img src="./static/bebold-logo.png" alt="">
+		</nuxt-link>
 	</div>
 
 	<nav>
