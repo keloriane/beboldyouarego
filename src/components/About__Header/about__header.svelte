@@ -1,7 +1,4 @@
 <script>
-
-    import cheerio from 'cheerio';
-
     export let aboutUp;
     export let aboutDown;
     export let aboutText;
@@ -14,17 +11,10 @@
 <section class="about__intro">
     <div class="about__info__container">
         <div class="title__about title__wrapper">
-            <!-- <h2>{data.acf.title_about_up}</h2>
-             <h2>{data.acf.title_about_down}</h2>-->
-         <!--   <h2 class="blue">{cheerio.load($aboutPageData?.acf?.title_about_up).text()}</h2>
-            <h2 class="orange">{cheerio.load($aboutPageData?.acf?.title_about_down).text()}</h2>-->
             <h2 class="blue">{aboutUp}</h2>
             <h2 class="orange">{aboutDown}</h2>
         </div>
         <div class="text__about text__wrapper">
-     <!--       <p>
-                {cheerio.load($aboutPageData?.acf?.about_text).text()}
-            </p>-->
             <p>
                 {aboutText}
             </p>
@@ -32,9 +22,7 @@
     </div>
     <div class="about__img__container">
         <div class="image__wrapper">
-  <!--          <img src={$aboutPageData?.acf?.about_image.url} alt="">-->
             <img src={aboutImage} alt="">
-
         </div>
 
     </div>
@@ -84,8 +72,10 @@
       }
     }
     h2 {
-      text-transform: uppercase;
+
       line-height: 45px;
+      font-weight: 800;
+      margin-bottom: 15px;
     }
   }
 

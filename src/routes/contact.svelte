@@ -32,15 +32,16 @@
                 <p>Contactez nous pour toutes autres informations supplémentaires, ou pour votre
                     pour un premier entretien gratuit</p>
             </div>
-            <form action="">
+            <form action="https://formsubmit.co/kevin.flbt@gmail.com" method="POST">
                 <label for="name">nom</label>
-                <input id="name" type="text" aria-label="name">
+                <input id="name" name="name" type="text" aria-label="name">
                 <label for="last-name">prénom</label>
-                <input id="last-name" type="text" aria-label="name">
-                <label for="mail">email</label>
-                <input id="mail" type="email" aria-label="name">
+                <input id="last-name" name="last-name" type="text" aria-label="name">
+                <label for="mail" >email</label>
+                <input id="mail" name="mail" type="email" aria-label="name">
                 <label for="description">Description</label>
                 <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                <button type="submit">Envoyer</button>
             </form>
         </div>
     </div>
