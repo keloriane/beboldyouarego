@@ -4,7 +4,12 @@
 
     import {onMount} from 'svelte';
     import SwiperCore, {Navigation, Pagination} from 'swiper';
-    import cheerio from 'cheerio'
+    import cheerio from 'cheerio';
+    import "swiper/css/pagination"
+    import "swiper/css/navigation"
+
+    SwiperCore.use([Pagination,Navigation]);SwiperCore.use([Pagination,Navigation]);
+
 
 
 
@@ -57,6 +62,7 @@
 
     </div>
     <svelte:component
+            navigation={true}
             this={Swiper}
             breakpoints='{{
   "640": {
