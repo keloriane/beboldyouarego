@@ -30,6 +30,7 @@
         activityData.forEach((activity)=>{
             if(activity.slug === slug) {
                 mainActivity = activity
+             console.log(mainActivity);
             };
 
         })
@@ -38,14 +39,25 @@
 
 
 </script>
-<section>
+<section id="activity_details">
 
-<h1>{cheerio.load(mainActivity.title.rendered).text()}</h1>
+ <div class="activity_wrapper">
+  <div class="text_container">
+ <div class="title__container">
+<h2>{cheerio.load(mainActivity.title.rendered).text()}</h2>
 <!--  <p>  {cheerio.load(mainActivity.content.rendered).html()} </p>-->
 
- <p>
-  {parse(mainActivity.content.rendered)}
- </p>
+ </div>
+<p>
+    {@html cheerio.load(mainActivity.content.rendered , null , false).html()}
+
+</p>
+
+  </div>
+  <div class="image_container">
+   <img src={mainActivity.acf.image} alt="">
+  </div>
+ </div>
 
 
 
@@ -53,8 +65,46 @@
 
 
 </section>
-<style>
+<style lang="scss">
 ol , ul {
   list-style: inherit !important;
+}
+
+#activity_details {
+ width: 80vw;
+ height: 100vh;
+ margin: auto;
+
+
+}
+.title__container {
+ text-transform: uppercase;
+ max-width: 500px;
+ width: 100%;
+ font-weight: 800;
+ color: #E7650F;
+}
+.activity_wrapper {
+ width: 100%;
+ height: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-wrap: wrap;
+ gap:50px;
+
+
+}
+.text_container {
+ width: 45%;
+ min-width: 320px;
+}
+.image_container {
+ width: 50%;
+ img {
+  width: 100%;
+
+ }
+
 }
 </style>

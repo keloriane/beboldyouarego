@@ -53,6 +53,17 @@
     height: 100vh;
   }
 
+  @media (max-width:840px) {
+    .contact-page__container {
+      display: block;
+    }
+    .image__contact__wrapper {
+      display: none;
+    }
+    .form__container{
+      width: 100% !important;
+    }
+  }
   .contact-page__container {
     width: 100%;
     height: 100%;

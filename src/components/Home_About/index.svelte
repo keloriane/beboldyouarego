@@ -2,31 +2,6 @@
     export const ssr = false
     import {aboutData} from './../../stores/UrlStore.js'
     import Button from "../common/Button.svelte";
-    import {onMount} from "svelte";
-    import {gsap} from "gsap/dist/gsap.js";
-    import {ScrollTrigger} from "gsap/dist/ScrollTrigger.js"
-
-
-    gsap.registerPlugin(ScrollTrigger);
-
-
-    onMount(() => {
-        const words = document.querySelectorAll(".title-animate")
-        const homeAboutTimeline = gsap.timeline({
-            scrollTrigger: {
-                start: "center center",
-                trigger: ".home_about",
-                end:"+=200",
-
-            }
-        })
-        homeAboutTimeline
-            .from(words, {y: 100, duration: .5, stagger: 0.1})
-            .to(".overflow-image", {left: '100%', duration: .5,delay:-.5, ease: "power2.inOut"})
-            .fromTo('.section__text', {y: 100, opacity: 0,duration: 1, delay: -.5} , {y:0 , opacity:1})
-            .from(".main__image", {transform: "scale(2.5)", duration: 1.5, delay:-1.6, ease: "power2.inOut"})
-
-    })
 
 </script>
 
@@ -55,14 +30,14 @@
             </p>
 
         </div>
-        <Button url="/todos"/>
+        <Button url="/about"/>
     </div>
     <div class="image__container">
         <div class="image__wrapper">
             <div class="overflow-image">
 
             </div>
-            <img src={$aboutData?.image_about?.url} alt="" class="main__image">
+            <img src={$aboutData?.image_about?.url} alt="bebold girl smile" class="main__image">
         </div>
     </div>
 
@@ -89,13 +64,7 @@
       position: relative;
       overflow: hidden;
 
-      .overflow-image {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: white;
-        z-index: 1;
-      }
+
 
       img {
         max-width: 525px;

@@ -5,9 +5,9 @@
 
 <header>
 	<div class="corner">
-		<nuxt-link :href="/">
-			<img src="./static/bebold-logo.png" alt="">
-		</nuxt-link>
+		<a href="/">
+			<img src="./static/bebold-logo.png" alt="logo beboldyouaregold">
+		</a>
 	</div>
 
 	<nav>

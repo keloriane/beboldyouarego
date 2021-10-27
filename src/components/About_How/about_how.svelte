@@ -1,5 +1,11 @@
 <script>
+import axios from 'axios';
 
+let howText = '';
+axios.get('https://b-gold.be/wp-json/acf/v3/pages/')
+    .then(res => {
+        howText = res.data[2].acf.description
+    })
 </script>
 
 <section id="how_section">
@@ -12,14 +18,7 @@
         </div>
         <div class="text__container">
             <p>
-                Chez Be Bold, nous souhaitons contribuer à votre développement professionnel en vous
-                faisant épargner du temps, de l’énergie et des émotions.
-                Nous privilégions une approche humaine, de partage de connaissances et de bienveillance.
-                Chaque ambition est unique, c’est pourquoi nous attachons une importance particulière à
-                comprendre votre situation et vos attentes afin de vous proposer un accompagnement
-                personnalisé.
-                Après plusieurs années au cœur du monde du recrutement et de l’insertion professionnelle,
-                nous sommes sûrs de deux choses :
+                {howText}
 
             </p>
         </div>

@@ -20,19 +20,7 @@
         })
 
 
-    onMount(() => {
 
-        const words = document.querySelectorAll('.title_mission ');
-        const homeAboutTimeline = gsap.timeline({
-            scrollTrigger: {
-                start: "center center",
-                trigger: ".mission__section"
-            }
-        })
-        homeAboutTimeline
-            .from(words, {y: 100, duration: .5, stagger: 0.1})
-            .fromTo('.mission__text', {y: 100, opacity: 0, duration: .5, delay: -.8}, {y: 0, opacity: 1})
-    })
 
 </script>
 

@@ -84,7 +84,7 @@
                     this={SwiperSlide}
                     id="activity-card" class="activity_card" index={activity.id}>
             <div class="cards">
-                <img src={activity.acf.thumbnail.url} alt="" class="icon-card">
+                <img src={activity.acf.thumbnail.url} alt={`${cheerio.load(activity.title.rendered).text()}-image`} class="icon-card">
 
                 <h3 class="blue">
 

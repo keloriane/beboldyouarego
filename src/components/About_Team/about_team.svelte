@@ -3,11 +3,18 @@
     import cheerio from "cheerio";
 
     let teams = []
+    let descriptionTeam = ""
+
 
     axios.get('https://b-gold.be/wp-json/acf/v3/team')
         .then(res => {
             teams = res.data;
             console.log(teams);
+        })
+    axios.get('https://b-gold.be/wp-json/acf/v3/pages/')
+        .then(res => {
+            descriptionTeam = res.data[2].acf.description_team
+            console.log(descriptionTeam);
         })
 
 </script>
@@ -22,9 +29,7 @@
                 <h2>Qui Sommes <br> <span class="orange">Nous ?</span></h2>
             </div>
             <div class="text__container">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam donec varius eget egestas turpis id at
-                    sed faucibus. Tincidunt ultricies proin nec ullamcorper dictum tellus hendrerit dignissim tellus.
-                    Pharetra sem imperdiet magna elementum sit.</p>
+                <p>{descriptionTeam}</p>
             </div>
         </div>
         <div class="card__container">
@@ -34,7 +39,7 @@
              <div class="team__card" style={team.id%2===0 ? "align-self:'flex-start'" : "align-self:flex-end"}>
 
                  <div class="team__card__image-wrapper">
-                     <img src="{team?.acf.photo.url}" alt="">
+                     <img src="{team?.acf.photo.url}" alt={`${team?.acf?.prenom}-photo`}>
                      <div class="card__team-container">
                          <h4 class="orange">CEO / FOUDNER <br></h4>
 
