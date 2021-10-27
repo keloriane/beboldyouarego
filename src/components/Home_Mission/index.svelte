@@ -14,8 +14,8 @@
 
     axios.get('https://b-gold.be/wp-json/wp/v2/pages')
         .then((res)=> {
-            missionData = res.data[1].acf;
-            console.log(missionData);
+            missionData = res.data[0].acf;
+            console.log("missionData" , missionData);
 
         })
 
