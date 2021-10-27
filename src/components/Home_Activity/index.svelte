@@ -61,8 +61,27 @@
         </div>
 
     </div>
+    <div class="swiper_controller">
+        <div class="arrow_next arrow">
+            <svg width="50" height="50" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="40" r="37.5" stroke="#E7650F" stroke-width="5"/>
+                <path d="M32.7344 24.9219L49.1413 39.3986C49.5956 39.7994 49.592 40.5089 49.1336 40.905L32.7344 55.0781" stroke="#E7650F" stroke-width="5"/>
+            </svg>
+
+        </div>
+        <div class="arrow_prev arrow">
+            <svg width="50" height="50" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="40" r="37.5" transform="rotate(-180 40 40)" stroke="#E7650F" stroke-width="5"/>
+                <path d="M47.2656 55.0781L30.8587 40.6014C30.4044 40.2006 30.408 39.4911 30.8664 39.095L47.2656 24.9219" stroke="#E7650F" stroke-width="5"/>
+            </svg>
+
+        </div>
+    </div>
     <svelte:component
-            navigation={true}
+            navigation={{
+            nextEl: '.arrow_next',
+            prevEl: '.arrow_prev'}
+            }
             this={Swiper}
             breakpoints='{{
   "640": {
@@ -113,9 +132,21 @@
   :global {
     @import 'swiper/swiper';
   }
+  .swiper_controller {
+    width: 68vw;
+    /* position: absolute; */
+    /* z-index: 1000000; */
+    /* margin: auto; */
+    background-color: transparent;
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: space-between;
+    margin: auto;
+  }
 
   #activity {
     margin: 250px auto;
+    position: relative;
     width: 100vw;
     max-width: 1280px;
 
