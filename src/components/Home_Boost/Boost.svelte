@@ -5,9 +5,8 @@
 
     axios.get('https://b-gold.be/wp-json/wp/v2/pages')
         .then((res)=> {
-            boostData = res.data[1].acf;
+            boostData = res.data[0].acf;
             console.log(boostData);
-
         })
 
 
@@ -20,12 +19,12 @@
     </div>
     <div class="section__mission__container">
         <div class="title__wrapper">
-            <h2>{boostData.title}</h2>
+            <h2>{boostData?.title}</h2>
         </div>
         <div class="text__wrapper__mission">
             <div class="text__wrapper">
                 <p>
-                    {boostData.boost_text}
+                    {boostData?.boost_text}
                 </p>
             </div>
             <div class="call__to__action">
