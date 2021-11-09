@@ -53,11 +53,6 @@
                 <h2 class="blue">Nos Activités</h2>
 
             </div>
-            <div class="section__subtitle__wrapper">
-                <p>
-                    Be bold se concentre sur 4 domaines d’activité pour vous accompagner du mieux possible
-                </p>
-            </div>
         </div>
 
     </div>
@@ -170,7 +165,7 @@
 
   .activity__title__container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     max-width: 812px;
     margin: 20px auto 20px;

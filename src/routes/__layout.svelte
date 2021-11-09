@@ -1,6 +1,7 @@
 <script lang="ts">
     import Header from '$lib/header/Header.svelte';
     import '../app.css';
+
 </script>
 
 <Header/>
@@ -60,9 +61,9 @@
   footer {
     position: absolute;
     width: 100vw;
-    bottom: -259px;
+
     background: #060E1A;
-    height: 259px;
+
     padding: 50px;
 
     .info {
@@ -98,9 +99,9 @@
     }
 
     .footer__container {
-      display: grid;
-      grid-template-columns: 1fr 1fr 2fr;
-      gap: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 125px;
       width: 100%;
       max-width: 1030px;
       margin: auto;

@@ -22,11 +22,6 @@
             <h2>{boostData?.title}</h2>
         </div>
         <div class="text__wrapper__mission">
-            <div class="text__wrapper">
-                <p>
-                    {boostData?.boost_text}
-                </p>
-            </div>
             <div class="call__to__action">
 
             </div>
@@ -66,7 +61,7 @@
     max-width: 1030px;
     margin: auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     position: relative;
     z-index: 1;
     flex-wrap: wrap;

@@ -4,7 +4,7 @@ import axios from 'axios';
 let howText = '';
 axios.get('https://b-gold.be/wp-json/acf/v3/pages/')
     .then(res => {
-        howText = res.data[2].acf.description
+        howText = res.data[1].acf.description
     })
 </script>
 

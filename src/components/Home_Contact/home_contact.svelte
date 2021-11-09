@@ -26,10 +26,11 @@
 
 <style lang="scss">
   .boost__line {
-    width: 1026px;
+    max-width: 80vw;
+    width: 100%;
     border: .5px solid #F4B083;
     height: 1px;
-    margin: 20px auto 20px auto;
+    margin: auto;
 
   }
   #home_contact {
@@ -101,6 +102,7 @@
     .home__contact__container {
       justify-content: center;
       align-items: center;
+      flex-wrap: wrap;
       gap: 30px;
       .text__home__contact {
         width: 355px;
