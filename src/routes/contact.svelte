@@ -51,6 +51,21 @@
   #contact__page {
     width: 100vw;
     height: 100vh;
+  button {
+    margin-top: 20px;
+    height: 50px;
+    width: 100px;
+    background: none;
+    border: none;
+    color: white;
+    font-family: Poppins, sans-serif;
+    font-weight: 800;
+    transition: .2s ease-out;
+    &:hover {
+      background: #E7650F;
+
+    }
+  }
   }
 
   @media (max-width:840px) {
