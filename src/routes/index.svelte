@@ -20,8 +20,6 @@
 <Home_Mission />
 <Home_Activity />
 <Home_Boost />
-<Home_Contact />
-
 </div>
 
 

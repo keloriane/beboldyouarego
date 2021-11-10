@@ -21,6 +21,7 @@
 
     let Swiper;
     let SwiperSlide;
+    let orderedArray;
 
     onMount(async () => {
         // dynamically import swiper module
@@ -37,7 +38,8 @@
     const getData = async () => {
         await fetchActivityData()
             .then(() => {
-                console.log($activityData);
+                orderedArray = $activityData.splice(0,3)
+                console.log(orderedArray);
             })
     }
     getData();

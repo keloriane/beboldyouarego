@@ -1,6 +1,6 @@
 <script>
     import axios from 'axios'
-
+    import Home_Contact from "./../Home_Contact/home_contact.svelte"
     let boostData =''
 
     axios.get('https://b-gold.be/wp-json/wp/v2/pages')
@@ -18,6 +18,7 @@
 
     </div>
     <div class="section__mission__container">
+        <Home_Contact />
         <div class="title__wrapper">
             <h2>{boostData?.title}</h2>
         </div>
@@ -61,14 +62,14 @@
     max-width: 1030px;
     margin: auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     position: relative;
     z-index: 1;
     flex-wrap: wrap;
   }
 
   .title__wrapper {
-    width: 302px;
+    max-width: 430px;
     h2 {
       font-family: Poppins;
       font-style: normal;

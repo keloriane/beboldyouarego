@@ -4,24 +4,14 @@
 </script>
 
 
-<section id="home_contact">
-    <div class="home__contact__container">
-        <div class="title__home__contact">
-            <div class="subtitle__wrapper">
-                <h3>
-                    Contact
-                </h3>
-            </div>
-            <div class="title__wrapper">
-                <a href="/contact">
-                    Contactez nous
-                    pour un premier entretien gratuit
-                </a>
-            </div>
-        </div>
+<div>
+    <div class="title__wrapper">
+        <a href="/contact">
+            Contactez nous
+            pour un premier entretien gratuit
+        </a>
     </div>
-    <div class="boost__line"></div>
-</section>
+</div>
 
 
 <style lang="scss">
@@ -33,6 +23,7 @@
     margin: auto;
 
   }
+
   #home_contact {
     background: #060E1A;
   }
@@ -84,7 +75,9 @@
       }
     }
 
+  }
     .title__wrapper {
+      max-width: 480px;
       a {
         font-style: normal;
         font-weight: bold;
@@ -96,7 +89,6 @@
         color: #FFFFFF;
       }
     }
-  }
 
   @media only screen and (max-width: 990px) {
     .home__contact__container {
@@ -104,8 +96,10 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 30px;
+
       .text__home__contact {
         width: 355px;
+
         .call__to__action {
           text-align: center;
         }

@@ -1,14 +1,7 @@
 <script>
     import {browser, dev} from '$app/env';
-
     export const hydrate = dev;
-
-    // ...but if the client-side router is already loaded
-    // (i.e. we came here from elsewhere in the app), use it
     export const router = browser;
-
-    // since there's no dynamic data here, we can prerender
-    // it so that it gets served as a static asset in prod
     export const prerender = true;
 
 </script>
@@ -33,11 +26,11 @@
                     pour un premier entretien gratuit</p>
             </div>
             <form action="https://formsubmit.co/kevin.flbt@gmail.com" method="POST">
-                <label for="name">nom</label>
+                <label for="name">Nom</label>
                 <input id="name" name="name" type="text" aria-label="name">
-                <label for="last-name">prénom</label>
+                <label for="last-name">Prénom</label>
                 <input id="last-name" name="last-name" type="text" aria-label="name">
-                <label for="mail" >email</label>
+                <label for="mail">Email</label>
                 <input id="mail" name="mail" type="email" aria-label="name">
                 <label for="description">Description</label>
                 <textarea name="description" id="description" cols="30" rows="10"></textarea>
@@ -51,34 +44,35 @@
   #contact__page {
     width: 100vw;
     height: 100vh;
-  button {
-    margin-top: 20px;
-    height: 50px;
-    width: 100px;
-    background: none;
-    border: none;
-    color: white;
-    font-family: Poppins, sans-serif;
-    font-weight: 800;
-    transition: .2s ease-out;
-    &:hover {
-      background: #E7650F;
 
+    button {
+      margin-top: 20px;
+      height: 50px;
+      width: 100px;
+      background: none;
+      border: none;
+      color: white;
+      font-family: Poppins, sans-serif;
+      font-weight: 800;
+      transition: .2s ease-out;
+      &:hover {
+        background: #E7650F;
+      }
     }
   }
-  }
 
-  @media (max-width:840px) {
+  @media (max-width: 840px) {
     .contact-page__container {
       display: block;
     }
     .image__contact__wrapper {
       display: none;
     }
-    .form__container{
+    .form__container {
       width: 100% !important;
     }
   }
+
   .contact-page__container {
     width: 100%;
     height: 100%;
@@ -129,9 +123,10 @@
     height: 100%;
     color: white;
     padding: 40px;
-    input , textarea {
-     color: white;
-      font-family: Poppins , sans-serif;
+
+    input, textarea {
+      color: white;
+      font-family: Poppins, sans-serif;
     }
 
     .form__description {
@@ -141,7 +136,7 @@
     }
 
     p {
-      font-family: Poppins;
+      font-family: Poppins sans-serif;
       font-style: normal;
       font-weight: 300;
       font-size: 15px;

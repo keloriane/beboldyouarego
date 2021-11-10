@@ -1,12 +1,25 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import logo from './svelte-logo.svg';
+	import axios from 'axios'
+	import {onMount} from "svelte";
+	import cheerio from "cheerio";
+	import {activityData, fetchActivityData} from "../../stores/UrlStore"
+
+	const getData = async () => {
+		await fetchActivityData()
+				.then(() => {
+					console.log('Menu' , $activityData);
+				})
+	}
+	getData();
+	
 </script>
 
 <header>
 	<div class="corner">
 		<a href="/">
-			<img src="./static/bebold-logo.png" alt="logo beboldyouaregold">
+			<img src="/bebold-logo.png" alt="logo beboldyouaregold">
 		</a>
 	</div>
 
@@ -16,7 +29,21 @@
 		</svg>
 		<ul>
 			<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">Home</a></li>
-			<li class:active={$page.path === '/about'}><a sveltekit:prefetch href="/about">About</a></li>
+			<li class:active={$page.path === '/about'} class="dropbtn"><a sveltekit:prefetch href="/about">
+				<div class="dropdown">
+					<div class="dropbtn">
+						About
+					</div>
+					<div class="dropdown-content">
+						{#each $activityData as activity }
+						<a href="">{cheerio.load(activity.title.rendered).text()}</a>
+							{/each}
+					</div>
+
+
+				</div>
+
+				</a></li>
 			<li class:active={$page.path === '/contact'}><a sveltekit:prefetch href="/contact">Contact</a></li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
@@ -117,4 +144,45 @@
 	a:hover {
 		color: var(--accent-color);
 	}
+	/* Dropdown Button */
+	.dropbtn {
+
+		color: black;
+		border: none;
+	}
+
+	/* The container <div> - needed to position the dropdown content */
+	.dropdown {
+		position: relative;
+		display: inline-block;
+	}
+
+	/* Dropdown Content (Hidden by Default) */
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #f1f1f1;
+		min-width: 160px;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		z-index: 1;
+	}
+
+	/* Links inside the dropdown */
+	.dropdown-content a {
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+		z-index: 20;
+	}
+
+
+	/* Change color of dropdown links on hover */
+	.dropdown-content a:hover {background-color: #ddd;}
+
+	/* Show the dropdown menu on hover */
+	.dropdown:hover .dropdown-content {display: block;}
+
+	/* Change the background color of the dropdown button when the dropdown content is shown */
+	.dropdown:hover .dropbtn {background-color: #E7650F;}
 </style>

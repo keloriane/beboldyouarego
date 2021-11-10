@@ -54,6 +54,11 @@
   .mission__section {
     text-align: center;
     margin-top: 80px;
+    .mission__text {
+      opacity: 0.8;
+      color: #11222D;
+      font-weight: 300;
+    }
 
     .mission__title__container {
       text-align: center;
@@ -70,10 +75,6 @@
       max-width: 680px;
       margin: auto;
 
-      p {
-        font-weight: 400;
-
-      }
     }
 
   }
