@@ -1,5 +1,6 @@
 <script>
     import {browser, dev} from '$app/env';
+
     export const hydrate = dev;
     export const router = browser;
     export const prerender = true;
@@ -22,8 +23,10 @@
         <div class="form__container">
             <div class="form__description">
                 <h2>Contactez nous</h2>
-                <p>Contactez nous pour toutes autres informations supplémentaires, ou pour votre
-                    pour un premier entretien gratuit</p>
+                <p>
+                    Contactez nous pour toutes autres informations supplémentaires, ou pour votre
+                    pour un premier entretien gratuit
+                </p>
             </div>
             <form action="https://formsubmit.co/kevin.flbt@gmail.com" method="POST">
                 <label for="name">Nom</label>
@@ -41,6 +44,7 @@
 </section>
 
 <style lang="scss">
+
   #contact__page {
     width: 100vw;
     height: 100vh;
@@ -55,6 +59,7 @@
       font-family: Poppins, sans-serif;
       font-weight: 800;
       transition: .2s ease-out;
+
       &:hover {
         background: #E7650F;
       }
@@ -129,6 +134,7 @@
       font-family: Poppins, sans-serif;
     }
 
+
     .form__description {
       width: 100%;
       padding: 10px;
@@ -136,8 +142,7 @@
     }
 
     p {
-      font-family: Poppins sans-serif;
-      font-style: normal;
+
       font-weight: 300;
       font-size: 15px;
       line-height: 123%;

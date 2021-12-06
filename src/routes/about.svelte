@@ -14,7 +14,7 @@
         const res = await fetch('https://b-gold.be/wp-json/wp/v2/pages/28933')
         const data = await res.json();
 
-        console.log(data);
+
 
         if (res.ok) {
             return data

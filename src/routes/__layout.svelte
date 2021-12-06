@@ -1,6 +1,20 @@
 <script lang="ts">
     import Header from '$lib/header/Header.svelte';
+    import {activityData, fetchActivityData} from "../stores/UrlStore";
     import '../app.css';
+    import axios from 'axios';
+    import {onMount} from "svelte";
+    import cheerio from 'cheerio';
+
+    let orderedArray ;
+    const getData = async () => {
+        await fetchActivityData()
+            .then(() => {
+                orderedArray = $activityData.splice(0,3)
+
+            })
+    }
+    getData();
 
 </script>
 
@@ -13,20 +27,25 @@
 <footer>
     <div class="footer__container">
         <div class="footer__items page__item">
-            <h4>pages</h4>
             <ul>
-                <li><a href="">Accueil</a></li>
-                <li><a href="">à propos</a></li>
-                <li><a href="">Contact</a></li>
+            <h4>pages</h4>
+
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/about">à propos</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
         </div>
         <div class="footer__items activity__item">
-            <h4>Activités</h4>
             <ul>
-                <li><a href="">Cv et Lettre de motivation</a></li>
-                <li><a href="">Aide à la recherche d'emplois</a></li>
-                <li><a href="">Linkedin</a></li>
-                <li><a href="">Entretien d'embauche</a></li>
+            <h4>Activités</h4>
+
+
+                {#each $activityData as activity }
+
+                <li><a href="activity/{activity.slug}">
+                            {cheerio.load(activity.title.rendered).text()}</a></li>
+                    {/each }
+
             </ul>
         </div>
         <div class="footer__items contact__info__item ">
@@ -36,7 +55,7 @@
                     <p>Mobile</p>
                 </div>
                 <div class="info">
-                    <a href="">
+                    <a href="tel:+32479058383">
                         +32 479 05 83 83
                     </a>
                 </div>
@@ -47,7 +66,7 @@
                 </div>
                 <div class="info">
 
-                    <a href="">
+                    <a href="mailto:info@beboldyouaregold.be">
                         info@beboldyouaregold.be
                     </a>
 

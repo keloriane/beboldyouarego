@@ -9,7 +9,7 @@
 	const getData = async () => {
 		await fetchActivityData()
 				.then(() => {
-					console.log('Menu' , $activityData);
+
 				})
 	}
 	getData();
@@ -28,15 +28,15 @@
 			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
 		</svg>
 		<ul>
-			<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">Home</a></li>
+			<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">Accueil</a></li>
 			<li class:active={$page.path === '/about'} class="dropbtn"><a sveltekit:prefetch href="/about">
 				<div class="dropdown">
 					<div class="dropbtn">
-						About
+						Services
 					</div>
 					<div class="dropdown-content">
 						{#each $activityData as activity }
-						<a href="">{cheerio.load(activity.title.rendered).text()}</a>
+						<a href="activity/{activity.slug}">{cheerio.load(activity.title.rendered).text()}</a>
 							{/each}
 					</div>
 
@@ -44,6 +44,7 @@
 				</div>
 
 				</a></li>
+			<li class:active={$page.path === '/contact'}><a sveltekit:prefetch href="/about">A propos</a></li>
 			<li class:active={$page.path === '/contact'}><a sveltekit:prefetch href="/contact">Contact</a></li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
