@@ -49,15 +49,20 @@
     {:then data}
 
         <About_Header
-                aboutUp={data?.acf.title_about_up}
+                aboutUp={data.acf.title_about_up}
                 aboutDown={data.acf.title_about_down}
-                aboutText={cheerio.load(data.acf.about_text).text()}
+                aboutText={data.acf.about_text}
                 aboutImage={data.acf.about_image.url}
                 aboutImageLayer={data.acf.about_image_layer.url}/>
-        <About_Who />
+        <About_Who
+                aboutWhoTitle={data.acf.about_who_title}
+                aboutWhoText={data.acf.about_who_text}
+        />
 
         <About_Team />
-    <About_How />
+    <About_How
+
+    />
         <Home_Contact />
 
     {/await}

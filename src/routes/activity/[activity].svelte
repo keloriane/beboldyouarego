@@ -10,7 +10,7 @@
         await axios.get('https://b-gold.be/wp-json/wp/v2/activities')
              .then((res) => {
                 activityData = res.data
-                 console.log(activityData);
+
              })
         slug = page.params.activity;
         return {

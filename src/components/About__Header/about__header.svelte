@@ -1,9 +1,11 @@
 <script>
+    import cheerio from "cheerio";
     export let aboutUp;
     export let aboutDown;
     export let aboutText;
     export let aboutImage;
     export let aboutImageLayer;
+
 
 </script>
 
@@ -13,10 +15,11 @@
         <div class="title__about title__wrapper">
             <h2 class="blue">{aboutUp}</h2>
             <h2 class="orange">{aboutDown}</h2>
+
         </div>
         <div class="text__about text__wrapper">
             <p>
-                {aboutText}
+                {@html aboutText}
             </p>
         </div>
     </div>
@@ -54,7 +57,7 @@
     align-items: center;
     .about__info__container {
       width: 100%;
-      max-width: 445px;
+      max-width: 480px;
 
     }
 

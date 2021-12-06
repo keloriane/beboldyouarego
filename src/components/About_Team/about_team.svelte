@@ -9,12 +9,12 @@
     axios.get('https://b-gold.be/wp-json/acf/v3/team')
         .then(res => {
             teams = res.data;
-            console.log(teams);
+
         })
     axios.get('https://b-gold.be/wp-json/acf/v3/pages/')
         .then(res => {
-            descriptionTeam = res.data[2].acf.description_team
-            console.log(descriptionTeam);
+            descriptionTeam = res.data[2]?.acf.description_team
+
         })
 
 </script>
