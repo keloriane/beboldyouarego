@@ -45,7 +45,7 @@
             de faire MIEUX.
         </p>
     </div>
-    <Button url="/about"/>
+
 
 </section>
 

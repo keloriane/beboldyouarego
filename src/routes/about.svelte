@@ -5,6 +5,7 @@
     import cheerio from 'cheerio'
     import About_Team from "./../components/About_Team/about_team.svelte";
     import Home_Contact from './../components/Home_Contact/home_contact.svelte';
+    import About_Who from './../components/About_Who/index.svelte'
     import {fade} from "svelte/transition"
 
 
@@ -53,6 +54,7 @@
                 aboutText={cheerio.load(data.acf.about_text).text()}
                 aboutImage={data.acf.about_image.url}
                 aboutImageLayer={data.acf.about_image_layer.url}/>
+        <About_Who />
 
         <About_Team />
     <About_How />
