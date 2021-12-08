@@ -6,6 +6,7 @@
 	import cheerio from "cheerio";
 	import {activityData, fetchActivityData} from "../../stores/UrlStore"
 
+
 	const getData = async () => {
 		await fetchActivityData()
 				.then(() => {
@@ -13,7 +14,8 @@
 				})
 	}
 	getData();
-	
+	console.log($page);
+
 </script>
 
 <header>
@@ -29,14 +31,15 @@
 		</svg>
 		<ul>
 			<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">Accueil</a></li>
-			<li class:active={$page.path === '/about'} class="dropbtn"><a sveltekit:prefetch href="/about">
+			<li  class="dropbtn"><a sveltekit:prefetch href="/about">
 				<div class="dropdown">
 					<div class="dropbtn">
 						Services
+
 					</div>
 					<div class="dropdown-content">
 						{#each $activityData as activity }
-						<a href="activity/{activity.slug}">{cheerio.load(activity.title.rendered).text()}</a>
+						<a href="/activity/{activity.slug}">{cheerio.load(activity.title.rendered).text()}</a>
 							{/each}
 					</div>
 

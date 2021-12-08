@@ -91,16 +91,16 @@ ol , ul {
  justify-content: center;
  align-items: center;
  flex-wrap: wrap;
- gap:50px;
+ gap:10px;
 
 
 }
 .text_container {
- width: 45%;
+ width: 60%;
  min-width: 320px;
 }
 .image_container {
- width: 50%;
+ width: 35%;
  img {
   width: 100%;
 
