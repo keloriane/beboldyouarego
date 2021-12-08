@@ -47,7 +47,7 @@
 				</div>
 
 				</a></li>
-			<li class:active={$page.path === '/contact'}><a sveltekit:prefetch href="/about">A propos</a></li>
+			<li class:active={$page.path === '/about'}><a sveltekit:prefetch href="/about">A propos</a></li>
 			<li class:active={$page.path === '/contact'}><a sveltekit:prefetch href="/contact">Contact</a></li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
